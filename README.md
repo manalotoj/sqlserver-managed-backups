@@ -25,3 +25,10 @@ Configure storage account to only be accessible via private network. To do so, i
 
 ## Azure Storage Account ##
 Be aware of the [scalability and performance targets](https://docs.microsoft.com/en-us/azure/storage/common/scalability-targets-standard-account).
+
+| Resource                                                                 | Limit                      |
+|:------------------------------------------------------------------------ |:---------------------------|
+| Number of storage accounts per region per subscription                   | 250                        |
+| Maximum storage account capacity                                         | 5 PiB                      |
+| Maximum request rate per storage account (can be increased upon request) | 20,000 requests per second |
+| Maximum ingress per storage account                                      | 25 Gbps                    |
