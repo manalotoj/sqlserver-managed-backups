@@ -32,3 +32,13 @@ Be aware of the [scalability and performance targets](https://docs.microsoft.com
 | Maximum storage account capacity                                         | 5 PiB                      |
 | Maximum request rate per storage account (can be increased upon request) | 20,000 requests per second |
 | Maximum ingress per storage account                                      | 25 Gbps                    |
+
+## Enable SQL Server managed backup to Azure ##
+Refer to [Enable SQL Server managed backup to Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/enable-sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&tabs=azure-cli#enable-managed-backup-to-azure) but apply the following modifications.
+
+* In step 3 of [Create the Azure Blob Container](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/enable-sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&tabs=azure-cli#create-the-azure-blob-container), add **--permissions** attribute when generating the SAS:
+```
+az storage container create --name <backupContainer> --account-name <backupStorage> --account-key $keys[0].value --permissions dlrw 
+```
+### Advanced Options ###
+Refer to [Configure advanced options for SQL Server managed backup to Microsoft Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/configure-advanced-options-for-sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15).
